@@ -9,6 +9,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.models.script import Script, ScriptStatus, Base
 from app.database import engine, SessionLocal
+from app.config.paths import SCRIPTS_DIR
 
 # Tạo thư mục logs nếu chưa tồn tại
 os.makedirs('logs', exist_ok=True)
@@ -102,8 +103,5 @@ def start_watching(scripts_dir):
         logger.error(f"Lỗi khởi động watcher: {e}")
 
 if __name__ == "__main__":
-    # Cấu hình từ biến môi trường hoặc giá trị mặc định
-    SCRIPTS_DIR = os.getenv('SCRIPTS_DIR', 'e:/RedditWorkflow/WF/scripts')
-    
     # Khởi động watcher
     start_watching(SCRIPTS_DIR)

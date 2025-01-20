@@ -13,6 +13,14 @@ from .services.video_service import VideoService
 from .services.watcher_service import WatcherService
 from .utils.logging_config import setup_logging, LoggerAdapter
 from .tasks import process_script_file
+from .config.paths import (
+    SCRIPTS_DIR,
+    get_channel_error_dir,
+    get_channel_completed_dir,
+    get_channel_processed_dir,
+    VOICE_API_URL,
+    VIDEO_API_URL
+)
 
 # Setup logging
 logger = LoggerAdapter(setup_logging(os.getenv("LOG_LEVEL", "DEBUG")), {})
@@ -21,8 +29,8 @@ logger = LoggerAdapter(setup_logging(os.getenv("LOG_LEVEL", "DEBUG")), {})
 Base.metadata.create_all(bind=engine)
 
 # Khởi tạo các service
-voice_service = VoiceService(voice_api_url="http://localhost:5003")
-video_service = VideoService(video_api_url="http://localhost:5001")
+voice_service = VoiceService(voice_api_url=VOICE_API_URL)
+video_service = VideoService(video_api_url=VIDEO_API_URL)
 watcher_service = WatcherService()
 
 app = FastAPI(
@@ -131,7 +139,7 @@ async def handle_error(script: Script, error_stage: str, error_message: str, db:
         db.commit()
 
         # Tạo thư mục error
-        error_dir = os.path.join('e:/RedditWorkflow/WF/scripts', script.channel_name, 'error')
+        error_dir = get_channel_error_dir(script.channel_name)
         os.makedirs(error_dir, exist_ok=True)
 
         # Di chuyển file gốc vào thư mục error
@@ -165,7 +173,7 @@ async def handle_success(script: Script, db: Session):
         db.commit()
 
         # Tạo thư mục completed
-        completed_dir = os.path.join('e:/RedditWorkflow/WF/scripts', script.channel_name, 'completed')
+        completed_dir = get_channel_completed_dir(script.channel_name)
         os.makedirs(completed_dir, exist_ok=True)
 
         # Di chuyển file gốc vào thư mục completed
@@ -255,7 +263,7 @@ async def process_file(file_path: str, channel_name: str):
         video_path = video_result['video_path']
         
         # Di chuyển file vào thư mục processed
-        processed_dir = os.path.join('e:/RedditWorkflow/WF/scripts', channel_name, 'processed')
+        processed_dir = get_channel_processed_dir(channel_name)
         os.makedirs(processed_dir, exist_ok=True)
         shutil.move(file_path, os.path.join(processed_dir, os.path.basename(file_path)))
         logger.info(f"Đã xử lý thành công file: {file_path}")
@@ -263,7 +271,7 @@ async def process_file(file_path: str, channel_name: str):
     except Exception as e:
         logger.error(f"Lỗi xử lý file {file_path}: {str(e)}")
         # Di chuyển file vào thư mục error
-        error_dir = os.path.join('e:/RedditWorkflow/WF/scripts', channel_name, 'error')
+        error_dir = get_channel_error_dir(channel_name)
         os.makedirs(error_dir, exist_ok=True)
         shutil.move(file_path, os.path.join(error_dir, os.path.basename(file_path)))
         logger.error(f"File lỗi đã được di chuyển tới: {os.path.join(error_dir, os.path.basename(file_path))}")
@@ -272,7 +280,7 @@ async def process_file(file_path: str, channel_name: str):
 async def startup_event():
     """Khởi động các watcher khi app bắt đầu"""
     # Khởi động watcher cho thư mục scripts
-    scripts_dir = "E:/RedditWorkflow/WF/scripts"
+    scripts_dir = SCRIPTS_DIR
     os.makedirs(scripts_dir, exist_ok=True)
     
     # Lấy danh sách các channel hiện có

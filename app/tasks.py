@@ -8,6 +8,14 @@ from .services.voice_service import VoiceService
 from .services.video_service import VideoService
 import time
 import uuid
+from .config.paths import (
+    AUDIO_DIR, SRT_DIR, VIDEOS_DIR,
+    get_channel_error_dir, get_channel_processed_dir,
+    get_channel_dir, WF_DIR,
+    get_channel_overlay1_dir, get_channel_overlay2_dir,
+    get_channel_voice_dir, get_channel_final_dir,
+    ensure_channel_directories
+)
 
 # Khởi tạo các service với cấu hình
 voice_service = VoiceService(voice_api_url="http://localhost:5003")
@@ -51,17 +59,17 @@ async def process_script_task(
             # Di chuyển file audio và SRT đến thư mục assets
             audio_path = voice_response['audio_path']
             srt_path = voice_response['srt_path']
-            shutil.move(audio_path, os.path.join('e:/RedditWorkflow/WF/assets/audio', audio_name))
-            shutil.move(srt_path, os.path.join('e:/RedditWorkflow/WF/assets/srt', srt_name))
-
-            voice_response['audio_path'] = os.path.join('e:/RedditWorkflow/WF/assets/audio', audio_name)
-            voice_response['srt_path'] = os.path.join('e:/RedditWorkflow/WF/assets/srt', srt_name)
+            shutil.move(audio_path, os.path.join(AUDIO_DIR, audio_name))
+            shutil.move(srt_path, os.path.join(SRT_DIR, srt_name))
+            
+            voice_response['audio_path'] = os.path.join(AUDIO_DIR, audio_name)
+            voice_response['srt_path'] = os.path.join(SRT_DIR, srt_name)
 
         except Exception as voice_error:
             logger.error(f"Voice processing error: {voice_error}")
             
             # Di chuyển file lỗi vào thư mục error
-            error_dir = os.path.join('e:/RedditWorkflow/WF/scripts', channel_name, 'error')
+            error_dir = get_channel_error_dir(channel_name)
             os.makedirs(error_dir, exist_ok=True)
             error_file_path = os.path.join(error_dir, os.path.basename(file_path))
             
@@ -97,7 +105,7 @@ async def process_script_task(
             )
             # Tạo tên video cuối cùng
             final_video_name = f"{script_name}_{unique_id}.mp4"
-            final_video_path = os.path.join('e:/RedditWorkflow/WF/assets/videos', final_video_name)
+            final_video_path = os.path.join(VIDEOS_DIR, final_video_name)
             # Di chuyển video đến đường dẫn mới
             shutil.move(video_response['video_path'], final_video_path)
             logger.info(f"Video đã được di chuyển tới: {final_video_path}")
@@ -105,7 +113,7 @@ async def process_script_task(
             logger.error(f"Video processing error: {video_error}")
             
             # Di chuyển file lỗi vào thư mục error
-            error_dir = os.path.join('e:/RedditWorkflow/WF/scripts', channel_name, 'error')
+            error_dir = get_channel_error_dir(channel_name)
             os.makedirs(error_dir, exist_ok=True)
             error_file_path = os.path.join(error_dir, os.path.basename(file_path))
             
@@ -135,7 +143,7 @@ async def process_script_task(
 
         # Xử lý thành công
         # Di chuyển file đã xử lý vào thư mục processed
-        processed_dir = os.path.join('e:/RedditWorkflow/WF/scripts', channel_name, 'processed')
+        processed_dir = get_channel_processed_dir(channel_name)
         os.makedirs(processed_dir, exist_ok=True)
         processed_file_path = os.path.join(processed_dir, os.path.basename(file_path))
         shutil.move(file_path, processed_file_path)
@@ -169,19 +177,9 @@ def setup_channel_directories(channel_name: str):
     """
     Tạo cấu trúc thư mục cho channel mới
     """
-    base_dir = "E:/RedditWorkflow/WF"
-    directories = [
-        f"{base_dir}/scripts/{channel_name}",
-        f"{base_dir}/scripts/{channel_name}/error",
-        f"{base_dir}/assets/overlay1/{channel_name}",
-        f"{base_dir}/assets/overlay2/{channel_name}",
-        f"{base_dir}/assets/voice/{channel_name}",
-        f"{base_dir}/assets/final/{channel_name}"
-    ]
-    
-    for directory in directories:
-        os.makedirs(directory, exist_ok=True)
-        logger.info(f"Đã tạo thư mục: {directory}")
+    base_dir = WF_DIR
+    ensure_channel_directories(channel_name)
+    logger.info(f"Đã tạo thư mục cho channel {channel_name}")
 
 async def process_script_file(file_path: str):
     """
@@ -193,7 +191,7 @@ async def process_script_file(file_path: str):
         channel_name = os.path.basename(os.path.dirname(file_path))
 
         # Kiểm tra xem thư mục kênh đã tồn tại hay chưa
-        channel_dir = os.path.join('e:/RedditWorkflow/WF/scripts', channel_name)
+        channel_dir = get_channel_dir(channel_name)
         if not os.path.exists(channel_dir):
             # Nếu chưa có kênh, tạo cấu trúc thư mục cho channel
             setup_channel_directories(channel_name)

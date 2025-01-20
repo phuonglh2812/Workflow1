@@ -5,10 +5,18 @@ from datetime import datetime
 import json
 import uuid
 from ..utils.logging_config import logger
+from ..config.paths import (
+    get_pandrator_session_dir,
+    get_channel_voice_dir,
+    get_channel_config_path,
+    VOICE_API_URL,
+    XTTS_API_URL,
+    CONFIG_DIR
+)
 
 class VoiceService:
-    def __init__(self, voice_api_url: str = "http://localhost:5003"):
-        self.api_url = voice_api_url
+    def __init__(self, voice_api_url: str = None):
+        self.api_url = voice_api_url or VOICE_API_URL
         self.logger = logger.getChild('voice_service')
 
     async def process_voice(self, file_path: str, channel_name: str):
@@ -28,7 +36,7 @@ class VoiceService:
             payload = {
                 "source_file": file_path.replace('/', '\\'),
                 "session_name": session_name,
-                "xtts_server_url": "http://localhost:8020",
+                "xtts_server_url": XTTS_API_URL,
                 "speaker_voice": voice_config.get('speaker_voice', "EN_Ivy_Female"),
                 "language": voice_config.get('language', 'en'),
                 "temperature": voice_config.get('temperature', 0.75),
@@ -62,7 +70,7 @@ class VoiceService:
                     raise Exception(f"Voice API error: {response.text}")
                 
                 # Đường dẫn cố định của Pandrator
-                base_dir = f"E:\\RedditWorkflow\\Pandrator\\Pandrator\\sessions\\{session_name}"
+                base_dir = get_pandrator_session_dir(session_name)
                 
                 # Kiểm tra file tồn tại
                 wav_path = os.path.join(base_dir, 'final.wav')
@@ -72,11 +80,7 @@ class VoiceService:
                     raise Exception("Voice files not generated")
 
                 # Đường dẫn assets của channel
-                channel_assets_dir = os.path.join(
-                    'e:/RedditWorkflow/WF/assets', 
-                    channel_name, 
-                    'voice'
-                )
+                channel_assets_dir = get_channel_voice_dir(channel_name)
                 os.makedirs(channel_assets_dir, exist_ok=True)
 
                 # Di chuyển WAV
@@ -109,11 +113,11 @@ class VoiceService:
     def _load_channel_voice_config(self, channel_name: str):
         """Load voice config cho channel"""
         try:
-            config_path = f'e:/RedditWorkflow/WF/config/channels/{channel_name}.json'
+            config_path = get_channel_config_path(channel_name)
             with open(config_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except Exception as e:
             self.logger.error(f"Error loading channel config: {e}")
             # Load config mặc định
-            with open('config/voice_config.json', 'r', encoding='utf-8') as f:
+            with open(os.path.join(CONFIG_DIR, 'voice_config.json'), 'r', encoding='utf-8') as f:
                 return json.load(f)

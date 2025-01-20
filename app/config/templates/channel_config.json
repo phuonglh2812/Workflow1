@@ -1,0 +1,20 @@
+{
+    "voice": {
+        "speaker_voice": "EN_Ivy_Female",
+        "language": "en",
+        "temperature": 0.75,
+        "length_scale": 1,
+        "noise_scale": 0.667,
+        "noise_w": 0.8,
+        "sentence_split": true
+    },
+    "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "background_color": "#000000",
+        "font_size": 40,
+        "font_color": "#FFFFFF",
+        "overlay_position": "center"
+    }
+}

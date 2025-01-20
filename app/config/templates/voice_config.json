@@ -1,0 +1,9 @@
+{
+    "speaker_voice": "EN_Ivy_Female",
+    "language": "en",
+    "temperature": 0.75,
+    "length_scale": 1,
+    "noise_scale": 0.667,
+    "noise_w": 0.8,
+    "sentence_split": true
+}

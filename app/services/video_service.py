@@ -6,21 +6,27 @@ import asyncio
 import logging
 from typing import Dict, Optional
 from ..utils.logging_config import setup_logging, CustomLoggerAdapter
+from ..config.paths import (
+    get_channel_overlay1_dir,
+    get_channel_overlay2_dir,
+    get_channel_final_dir,
+    VIDEO_API_URL
+)
 
 # Setup logging
 base_logger = setup_logging()
 logger = CustomLoggerAdapter(base_logger, {})
 
 class VideoService:
-    def __init__(self, video_api_url: str):
-        self.video_api_url = video_api_url
+    def __init__(self, video_api_url: str = None):
+        self.video_api_url = video_api_url or VIDEO_API_URL
         
     def _get_random_overlay2(self, channel_name: str) -> tuple[str, str]:
         """
         Lấy ngẫu nhiên một file overlay2 từ thư mục tương ứng
         Trả về tuple (đường dẫn đầy đủ, tên file)
         """
-        overlay2_dir = f"E:/RedditWorkflow/WF/assets/overlay2/{channel_name}"
+        overlay2_dir = get_channel_overlay2_dir(channel_name)
         if not os.path.exists(overlay2_dir):
             raise ValueError(f"Không tìm thấy thư mục overlay2 cho channel {channel_name}")
             
@@ -35,8 +41,8 @@ class VideoService:
         """
         Di chuyển file overlay đã sử dụng vào thư mục final và đổi tên
         """
-        source_path = f"E:/RedditWorkflow/WF/assets/overlay2/{channel_name}/{overlay_name}"
-        final_dir = f"E:/RedditWorkflow/WF/assets/final/{channel_name}"
+        source_path = os.path.join(get_channel_overlay2_dir(channel_name), overlay_name)
+        final_dir = get_channel_final_dir(channel_name)
         os.makedirs(final_dir, exist_ok=True)
         
         # Tạo tên mới cho overlay: tên_video_overlay.png
@@ -48,8 +54,8 @@ class VideoService:
 
     def _move_video_to_final(self, channel_name: str, output_name: str) -> str:
         """Di chuyển video từ thư mục final về thư mục assets/final/channel"""
-        source_path = f"E:/RedditWorkflow/final/{output_name}"
-        final_dir = f"E:/RedditWorkflow/WF/assets/final/{channel_name}"
+        source_path = os.path.join(get_channel_final_dir(channel_name), output_name)
+        final_dir = get_channel_final_dir(channel_name)
         os.makedirs(final_dir, exist_ok=True)
         
         final_path = os.path.join(final_dir, output_name)
@@ -64,7 +70,7 @@ class VideoService:
         """
         try:
             # Lấy overlay1 cố định theo channel
-            overlay1_path = f"E:/RedditWorkflow/WF/assets/overlay1/{channel_name}/overlay1.png"
+            overlay1_path = os.path.join(get_channel_overlay1_dir(channel_name), 'overlay1.png')
             if not os.path.exists(overlay1_path):
                 raise ValueError(f"Không tìm thấy overlay1 cho channel {channel_name}")
 
@@ -116,7 +122,7 @@ class VideoService:
                         
                         if status_response.status_code == 200:
                             # Nếu nhận được 200, coi như thành công
-                            temp_video_path = f"E:/RedditWorkflow/final/{output_name}"
+                            temp_video_path = os.path.join(get_channel_final_dir(channel_name), output_name)
                             
                             # Di chuyển overlay2 đã sử dụng vào thư mục final
                             self._move_overlay_to_final(channel_name, overlay2_name, output_name)
