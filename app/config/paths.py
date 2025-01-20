@@ -105,6 +105,14 @@ def get_channel_config_path(channel_name):
     """Lấy đường dẫn file cấu hình của channel"""
     return os.path.join(CONFIG_DIR, 'channels', f'{channel_name}.json')
 
+# Video service directories
+VIDEO_SERVICE_ROOT = os.getenv('VIDEO_SERVICE_ROOT', 'D:/Workflow/Videomakerv1')
+VIDEO_SERVICE_FINAL_DIR = os.path.join(VIDEO_SERVICE_ROOT, 'final')
+
+def get_video_service_temp_path(output_name):
+    """Lấy đường dẫn tới file video tạm thời trong thư mục final của video service"""
+    return os.path.join(VIDEO_SERVICE_FINAL_DIR, output_name)
+
 # Pandrator paths
 def get_pandrator_session_dir(session_name):
     """Lấy đường dẫn thư mục phiên làm việc của Pandrator"""

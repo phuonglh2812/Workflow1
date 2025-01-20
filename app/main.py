@@ -172,15 +172,14 @@ async def handle_success(script: Script, db: Session):
         script.completed_at = datetime.now()
         db.commit()
 
-        # Tạo thư mục completed
-        completed_dir = get_channel_completed_dir(script.channel_name)
-        os.makedirs(completed_dir, exist_ok=True)
-
-        # Di chuyển file gốc vào thư mục completed
-        completed_file = os.path.join(completed_dir, os.path.basename(script.file_path))
-        shutil.move(script.file_path, completed_file)
-
-        logger.info(f"Đã xử lý thành công script {script.file_path}")
+        # Di chuyển file kịch bản vào thư mục processed
+        processed_dir = get_channel_processed_dir(script.channel_name)
+        script_file_path = script.file_path  # Cập nhật đường dẫn file kịch bản từ script
+        try:
+            shutil.move(script_file_path, processed_dir)
+            logger.info(f"File kịch bản đã được di chuyển vào thư mục processed: {script_file_path}")
+        except Exception as e:
+            logger.error(f"Không thể di chuyển file kịch bản vào thư mục processed: {str(e)}")
 
     except Exception as e:
         logger.error(f"Lỗi khi xử lý success handling: {e}")
