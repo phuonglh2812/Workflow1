@@ -1,0 +1,42 @@
+2025-01-12 21:25:03,021 - INFO - Đang giám sát thư mục: e:/RedditWorkflow/WF/scripts
+2025-01-12 21:25:03,021 - INFO - Gửi file tới API: http://localhost:8001
+2025-01-12 21:25:14,675 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC1.txt
+2025-01-12 21:25:16,726 - INFO - Đã gửi file EC1.txt với task_id: c70d7a45-066d-4dcd-9c00-a13a3880b522
+2025-01-12 21:25:16,726 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC2.txt
+2025-01-12 21:25:18,740 - INFO - Đã gửi file EC2.txt với task_id: 6cecad22-6b40-4efe-af92-1d79e001de17
+2025-01-12 21:29:33,315 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN2.txt
+2025-01-12 21:29:35,350 - INFO - Đã gửi file VN2.txt với task_id: 5f4cbc90-fc54-43bd-b66f-4809bc060ebc
+2025-01-12 21:29:35,350 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN1.txt
+2025-01-12 21:29:37,403 - INFO - Đã gửi file VN1.txt với task_id: 9455e573-0333-448d-ae48-2b4234284a91
+2025-01-12 21:31:59,854 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC4.txt
+2025-01-12 21:32:01,906 - INFO - Đã gửi file EC4.txt với task_id: 081ffb37-f151-481c-b74a-418982c6fc0f
+2025-01-12 21:32:01,906 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC3.txt
+2025-01-12 21:32:03,952 - INFO - Đã gửi file EC3.txt với task_id: 84bdd1ea-8ee3-467a-9e1b-a4187aca1763
+2025-01-12 21:38:03,424 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN2.txt
+2025-01-12 21:38:05,521 - INFO - Đã gửi file VN2.txt với task_id: 62db03ff-0393-4950-b330-802f40ea5112
+2025-01-12 21:38:05,521 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC1.txt
+2025-01-12 21:38:07,568 - INFO - Đã gửi file EC1.txt với task_id: 9fd2cdc4-432e-4d2c-acd4-bcb7406bb4f4
+2025-01-12 21:38:07,568 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC2.txt
+2025-01-12 21:38:09,657 - INFO - Đã gửi file EC2.txt với task_id: e7b80886-34d2-437c-a9e8-4ef77b1d51f7
+2025-01-12 21:38:09,657 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC3.txt
+2025-01-12 21:38:11,694 - INFO - Đã gửi file EC3.txt với task_id: 29272c7c-16a0-4fd8-b634-eb4f0f979585
+2025-01-12 21:38:11,694 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC4.txt
+2025-01-12 21:38:13,755 - INFO - Đã gửi file EC4.txt với task_id: 1d1ede0f-e390-47f6-82bf-903e6aca0044
+2025-01-12 21:38:13,755 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN1.txt
+2025-01-12 21:38:15,811 - INFO - Đã gửi file VN1.txt với task_id: 68d2bf26-ed9d-4665-ab2b-927d235689d3
+2025-01-12 21:41:09,184 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN2.txt
+2025-01-12 21:41:11,254 - INFO - Đã gửi file VN2.txt với task_id: 7fccc685-e742-4d28-85ba-45802ddcf57d
+2025-01-12 21:41:11,255 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN1.txt
+2025-01-12 21:41:13,343 - INFO - Đã gửi file VN1.txt với task_id: eda2f8bb-d11c-4a20-b566-7488b88d63d6
+2025-01-12 21:43:12,496 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN2.txt
+2025-01-12 21:43:14,946 - INFO - Đã gửi file VN2.txt với task_id: 04d2e568-a997-4b29-9cf9-55d5bb163586
+2025-01-12 21:43:14,946 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\VN1.txt
+2025-01-12 21:43:17,003 - INFO - Đã gửi file VN1.txt với task_id: 1311502e-256a-4539-b452-732809568041
+2025-01-12 21:47:02,633 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC5.txt
+2025-01-12 21:47:04,684 - INFO - Đã gửi file EC5.txt với task_id: e1b5b5e1-dc9d-4428-849e-a998a8cca223
+2025-01-12 21:47:04,684 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\EC6.txt
+2025-01-12 21:47:06,748 - INFO - Đã gửi file EC6.txt với task_id: 04926915-0e75-41ac-af73-a257b1a574ea
+2025-01-12 21:49:45,517 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\V1.txt
+2025-01-12 21:49:47,955 - INFO - Đã gửi file V1.txt với task_id: 1b184e2a-f1ed-424e-9216-2ca67421bdf0
+2025-01-12 21:49:47,955 - INFO - Phát hiện file mới: e:/RedditWorkflow/WF/scripts\C1\V2.txt
+2025-01-12 21:49:49,997 - INFO - Đã gửi file V2.txt với task_id: 6cc68c82-6636-4f85-8f0b-5bd08471b94a

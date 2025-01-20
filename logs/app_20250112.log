@@ -1,0 +1,24 @@
+[2025-01-12 20:25:33,045] [INFO] [root:95] === Logging System Initialized ===
+Path: E:\RedditWorkflow\WF\app\utils\logging_config.py
+Function: setup_logging
+None
+[2025-01-12 20:25:33,063] [INFO] [root:96] Log Level: DEBUG
+Path: E:\RedditWorkflow\WF\app\utils\logging_config.py
+Function: setup_logging
+None
+[2025-01-12 20:25:33,065] [INFO] [root:97] Log File: ./logs\app_20250112.log
+Path: E:\RedditWorkflow\WF\app\utils\logging_config.py
+Function: setup_logging
+None
+[2025-01-12 20:27:02] [INFO] [root:96] === Logging System Initialized ===
+Path: E:\RedditWorkflow\WF\app\utils\logging_config.py
+Function: setup_logging
+None
+[2025-01-12 20:27:02] [INFO] [root:97] Log Level: DEBUG
+Path: E:\RedditWorkflow\WF\app\utils\logging_config.py
+Function: setup_logging
+None
+[2025-01-12 20:27:02] [INFO] [root:98] Log File: E:\RedditWorkflow\WF\logs\app_20250112.log
+Path: E:\RedditWorkflow\WF\app\utils\logging_config.py
+Function: setup_logging
+None

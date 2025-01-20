@@ -1,0 +1,58 @@
+2025-01-12 21:43:00,807 - INFO: Đang giám sát thư mục: ./scripts
+2025-01-12 21:43:00,807 - INFO: Gửi file tới API: http://localhost:8001
+2025-01-12 21:43:12,496 - INFO: Phát hiện file mới: ./scripts\C1\VN2.txt
+2025-01-12 21:43:14,558 - INFO: Đã gửi file VN2.txt với task_id: 46b2a8f6-b0fc-4d70-847b-0b317afc8280
+2025-01-12 21:43:14,558 - INFO: Phát hiện file mới: ./scripts\C1\VN1.txt
+2025-01-12 21:43:16,595 - INFO: Đã gửi file VN1.txt với task_id: 635c38c1-fbae-4d01-a20f-4e51ce532b1d
+2025-01-12 21:46:48,511 - INFO: Đang giám sát thư mục: ./scripts
+2025-01-12 21:46:48,512 - INFO: Gửi file tới API: http://localhost:8001
+2025-01-12 21:47:02,633 - INFO: Phát hiện file mới: ./scripts\C1\EC5.txt
+2025-01-12 21:47:05,066 - INFO: Đã gửi file EC5.txt với task_id: 8eaddf13-c214-493f-8ecf-22de1d5e7086
+2025-01-12 21:47:05,066 - INFO: Phát hiện file mới: ./scripts\C1\EC6.txt
+2025-01-12 21:47:07,133 - INFO: Đã gửi file EC6.txt với task_id: 4e957129-4f1b-4942-9454-7a9771c9bc56
+2025-01-12 21:49:11,981 - INFO: Đang giám sát thư mục: ./scripts
+2025-01-12 21:49:11,982 - INFO: Gửi file tới API: http://localhost:8001
+2025-01-12 21:49:45,517 - INFO: Phát hiện file mới: ./scripts\C1\V1.txt
+2025-01-12 21:49:47,572 - INFO: Đã gửi file V1.txt với task_id: 3128dfeb-6549-4b3f-8f3a-025cbe890b82
+2025-01-12 21:49:47,572 - INFO: Phát hiện file mới: ./scripts\C1\V2.txt
+2025-01-12 21:49:49,617 - INFO: Đã gửi file V2.txt với task_id: e97cc7c8-023f-46fa-bfd0-d33dd73c13b6
+2025-01-12 21:51:17,499 - INFO: Đang giám sát thư mục: ./scripts
+2025-01-12 21:51:17,499 - INFO: Gửi file tới API: http://localhost:8001
+2025-01-12 21:51:32,786 - INFO: Phát hiện file mới: ./scripts\C1\TRA1.txt
+2025-01-12 21:51:34,831 - INFO: Đã gửi file TRA1.txt với task_id: bd40ddb3-4c4d-4a92-b10f-70af3fa237d3
+2025-01-12 21:51:34,831 - INFO: Phát hiện file mới: ./scripts\C1\TRA2.txt
+2025-01-12 21:51:36,867 - INFO: Đã gửi file TRA2.txt với task_id: 1b55e6b1-882f-4cdf-9e55-26c17048f62b
+2025-01-12 21:53:18,959 - INFO: Đang giám sát thư mục: ./scripts
+2025-01-12 21:53:18,959 - INFO: Gửi file tới API: http://localhost:8001
+2025-01-12 21:53:32,202 - INFO: Phát hiện file mới: ./scripts\C1\TRA3.txt
+2025-01-12 21:53:34,266 - INFO: Đã gửi file TRA3.txt với task_id: 417d3319-22ce-49de-b750-eea6a5bb3d90
+2025-01-12 21:53:34,266 - INFO: Phát hiện file mới: ./scripts\C1\TRA4.txt
+2025-01-12 21:53:36,295 - INFO: Đã gửi file TRA4.txt với task_id: d6854f47-eee4-4695-b453-8bd2ced56416
+2025-01-12 22:36:25,139 - INFO: Đang giám sát thư mục: ./scripts
+2025-01-12 22:36:25,139 - INFO: Gửi file tới API: http://localhost:8001
+2025-01-12 22:37:43,190 - INFO: Phát hiện file mới: ./scripts\C1\T1.txt
+2025-01-12 22:37:45,214 - INFO: Đã gửi file T1.txt với task_id: 1916feea-1c76-4703-a007-4b10d9eeec82
+2025-01-12 22:37:45,214 - INFO: Phát hiện file mới: ./scripts\C1\T2.txt
+2025-01-12 22:37:47,259 - INFO: Đã gửi file T2.txt với task_id: aa0620f7-839b-442a-9a35-eff079cf17e2
+2025-01-12 22:40:58,584 - INFO: Phát hiện file mới: ./scripts\C1\N1.txt
+2025-01-12 22:41:00,637 - INFO: Đã gửi file N1.txt với task_id: a0f6a05d-1692-4216-a0b6-45deecc92f12
+2025-01-12 22:41:00,638 - INFO: Phát hiện file mới: ./scripts\C1\N2.txt
+2025-01-12 22:41:02,698 - INFO: Đã gửi file N2.txt với task_id: aeef0956-5e6c-4cd1-8943-c4401bc5a768
+2025-01-12 22:44:25,871 - INFO: Phát hiện file mới: ./scripts\C1\111.txt
+2025-01-12 22:44:27,925 - INFO: Đã gửi file 111.txt với task_id: 9c90bbbc-b9ec-4f17-b343-51afb1772d07
+2025-01-12 22:44:27,925 - INFO: Phát hiện file mới: ./scripts\C1\1111.txt
+2025-01-12 22:44:29,984 - INFO: Đã gửi file 1111.txt với task_id: 3caa95af-5d7b-4b73-801e-8cd8c070279a
+2025-01-12 22:48:34,334 - INFO - Bắt đầu theo dõi thư mục: ./scripts
+2025-01-12 22:48:39,842 - INFO - Phát hiện file mới: ./scripts\C1\O1.txt
+2025-01-12 22:48:39,842 - ERROR - Lỗi xử lý file ./scripts\C1\O1.txt: type object 'ScriptStatus' has no attribute 'pending'
+2025-01-12 22:48:39,844 - ERROR - File lỗi đã được di chuyển tới: ./scripts\C1\error\20250112_224839_O1.txt.error
+2025-01-12 22:48:39,846 - INFO - Phát hiện file mới: ./scripts\C1\O2.txt
+2025-01-12 22:48:39,846 - ERROR - Lỗi xử lý file ./scripts\C1\O2.txt: type object 'ScriptStatus' has no attribute 'pending'
+2025-01-12 22:48:39,847 - ERROR - File lỗi đã được di chuyển tới: ./scripts\C1\error\20250112_224839_O2.txt.error
+2025-01-12 22:50:25,678 - INFO - Dừng theo dõi thư mục
+2025-01-12 22:50:43,431 - INFO - Bắt đầu theo dõi thư mục: ./scripts
+2025-01-12 22:50:51,621 - INFO - Phát hiện file mới: ./scripts\C1\CV1.txt
+2025-01-12 22:50:51,622 - ERROR - Lỗi xử lý file ./scripts\C1\CV1.txt: type object 'ScriptStatus' has no attribute 'pending'
+2025-01-12 22:55:42,238 - INFO - Phát hiện file mới: ./scripts\C1\error\CV1.txt
+2025-01-12 22:55:42,238 - ERROR - Lỗi xử lý file ./scripts\C1\error\CV1.txt: type object 'ScriptStatus' has no attribute 'pending'
+2025-01-12 22:56:09,399 - INFO - Dừng theo dõi thư mục
